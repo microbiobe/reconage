@@ -36,3 +36,7 @@ echo "resolving subdomains"
   cat subdomain.txt | httpx | tee resolve.subdomains.txt >> /dev/null
 echo "httpx fininshed its task"
 
+echo ""
+echo "sorting urls"
+    cat *.txt | egrep -v  "\.woff|\.ttf|\.svg|\.eot|\.png|\.jpeg|\.jpg|\.svg|\.css|\.ico" | sed 's/:80//g;s/:443//g' | sort -u > final.urls.txt
+echo "sorting url done"
